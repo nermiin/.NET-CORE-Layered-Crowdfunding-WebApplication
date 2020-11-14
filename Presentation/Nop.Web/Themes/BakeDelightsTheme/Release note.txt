@@ -1,0 +1,63 @@
+Release Date: August 05, 2020
+Bake Delights Theme version: 2.4.0
+
+Added Feature
+
+Added support for RTL
+
+==========================================
+
+Release Date: July 9, 2020
+Bake Delights Theme version: 2.3.0
+
+Added Feature
+Support for nopCommerce 4.3 added
+
+Bugs
+Product box image issue
+Theme EU cookie design issue in mobile
+theme password recovery page validation issue in confirm password field
+Theme product thumbs issue in product details page
+
+==========================================
+
+Release Date: August 23, 2019
+Bake Delights Theme version: 2.2.0
+
+Added Feature
+
+Support for nopCommerce 4.2 added
+
+==========================================
+
+Release Date: August 22, 2018
+Bake Delights Theme version: 2.1.0
+
+Added Feature
+
+Support for nopCommerce 4.1 added
+
+==========================================
+
+Release Date: December 6, 2017
+Bake Delights Theme version: 2.0.0
+
+Added Feature
+
+Support for nopCommerce 4.0 added
+
+==========================================
+
+Release Date: September 27, 2017
+Bake Delights Theme version: 1.0.1
+
+Release Bake Delights Theme after bug fixing version 1.0.1.
+
+==========================================
+
+Release Date: September 9, 2017
+Bake Delights Theme version: 1.0.0
+
+Release Bake Delights Theme Initial version 1.0.0.
+
+==========================================

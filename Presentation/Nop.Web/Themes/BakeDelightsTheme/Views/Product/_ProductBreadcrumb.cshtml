@@ -1,0 +1,43 @@
+﻿@model ProductDetailsModel.ProductBreadcrumbModel
+@using Nop.Core.Domain.Common
+@inject CommonSettings commonSettings
+@{
+    var breadcrumbDelimiter = commonSettings.BreadcrumbDelimiter;
+}
+@if (Model.Enabled)
+{
+<div class="breadcrumb-wrapper">
+    <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBreadcrumbBefore, additionalData = Model })
+        <li>
+            <span>
+                <a href="@Url.RouteUrl("Homepage")">
+                    <span><i class="fa fa-home"></i>@T("Products.Breadcrumb.Top")</span>
+                </a>
+            </span>
+            @*<span class="divider">@breadcrumbDelimiter</span>*@
+        </li>
+        @{ int position = 1; }
+        @foreach (var category in Model.CategoryBreadcrumb)
+        {
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span>
+                <a href="@Url.RouteUrl("Category", new { SeName = category.SeName })" itemprop="item">
+                    <span itemprop="name">@category.Name</span>
+                </a>
+            </span>
+            @*<span class="divider">@breadcrumbDelimiter</span>*@
+            <meta itemprop="position" content="@position" />
+        </li>
+        position++;
+        }
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <strong class="active" itemprop="name">@Model.ProductName</strong>
+            <span itemprop="item" itemscope itemtype="http://schema.org/Thing" id="@Url.RouteUrl("Product", new { SeName = Model.ProductSeName })">
+            </span>
+            <meta itemprop="position" content="@position" />
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductBreadcrumbAfter, additionalData = Model })
+        </li>
+    </ol>
+</div>
+} 

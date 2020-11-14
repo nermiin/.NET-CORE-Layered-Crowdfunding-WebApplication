@@ -1,0 +1,81 @@
+﻿@model ProductEmailAFriendModel
+
+@{
+    Layout = "_ColumnsTwo";
+
+    //title
+    Html.AddTitleParts(Model.ProductName);
+    //page class
+    Html.AddTitleParts(T("PageTitle.ProductEmailAFriend").Text);
+    Html.AppendPageCssClassParts("html-email-a-friend-page");
+}
+<div class="page email-a-friend-page">
+    <div class="page-title panel-heading">
+        <h1>@T("Products.EmailAFriend.Title")</h1>
+    </div>
+    <div class="page-body">
+        <div class="title">
+            <h2><a href="@Url.RouteUrl("Product", new { SeName = Model.ProductSeName })" class="product">@Model.ProductName</a></h2>
+        </div>
+        @if (Model.SuccessfullySent)
+        {
+            <div class="result alert alert-success">
+                @Model.Result
+            </div>
+        }
+        else
+        {
+            <form asp-route="ProductEmailAFriend" method="post">
+                <div asp-validation-summary="ModelOnly" class="message-error"></div>
+                <form role="form" class="form-horizontal">
+                    <div class="form-group row">
+                        <label asp-for="FriendEmail" class = "col-sm-3 col-md-3 control-label"></label>
+                        <div class="visible-xs form-title-rquired"><nop-required /></div>
+                        <div class="col-sm-5 col-md-5">
+                            <input asp-for="FriendEmail" class="friend-email form-control" placeholder="@T("Products.EmailAFriend.FriendEmail.Hint")" />
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+                            <span asp-validation-for="FriendEmail"></span>
+                            <div class="visible-lg visible-md visible-sm form-title-rquired"><nop-required /></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="YourEmailAddress" class = "col-sm-3 col-md-3 control-label"></label>
+                        <div class="visible-xs form-title-rquired"><nop-required /></div>
+                        <div class="col-sm-5 col-md-5">
+                            <input asp-for="YourEmailAddress" class="your-email form-control" placeholder="@T("Products.EmailAFriend.YourEmailAddress.Hint")" />
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+                            <span asp-validation-for="YourEmailAddress"></span>
+                            <div class="visible-lg visible-md visible-sm form-title-rquired"><nop-required /></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="PersonalMessage" class="col-sm-3 col-md-3 control-label"></label>
+                        <div class="col-sm-5 col-md-5">
+                            <textarea asp-for="PersonalMessage" class="your-email form-control" placeholder="@T("Products.EmailAFriend.PersonalMessage.Hint")"></textarea>
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+                            <span asp-validation-for="PersonalMessage"></span>
+                        </div>
+                    </div>
+                    @if (Model.DisplayCaptcha)
+                    {
+                    <div class="form-group row">
+                        <div class="col-sm-offset-3 col-md-offset-3 col-md-4">
+                            <div class="captcha-box">
+                                <nop-captcha />
+                            </div>
+                        </div>
+                    </div>
+                    }
+                    <div class="form-group row">
+                        <div class="col-sm-offset-3 col-md-offset-3 col-md-2">
+                            <input type="submit" name="send-email" class="btn btn-primary send-email-a-friend-button" value="@T("Products.EmailAFriend.Button")" />
+                        </div>
+                    </div>
+                </form>
+            </form>
+        }
+    </div>
+</div>

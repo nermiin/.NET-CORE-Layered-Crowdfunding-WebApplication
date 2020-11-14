@@ -1,0 +1,69 @@
+﻿@model ProductDetailsModel.GiftCardModel
+
+@if (Model.IsGiftCard)
+{
+    <div class="giftcard form-horizontal">
+        <div class="fieldset">
+            <div class="form-group">
+                <label class="control-label col-sm-2 col-md-2" asp-for="RecipientName" asp-postfix=":"></label>
+                <div class="visible-xs form-title-rquired">
+                    <nop-required />
+                </div>
+                <div class="col-sm-6 col-md-6 col-xs-12">
+                    <input asp-for="RecipientName" class="recipient-name form-control" />
+                </div>
+                <div class="col-sm-4 col-md-4 col-xs-12">
+                    <div class="visible-lg visible-md visible-sm form-title-rquired"><nop-required /></div>
+                </div>
+            </div>
+            @if (Model.GiftCardType == Nop.Core.Domain.Catalog.GiftCardType.Virtual)
+            {
+                <div class="form-group">
+                    <label class="control-label col-sm-2 col-md-2" asp-for="RecipientEmail" asp-postfix=":"></label>
+                    <div class="visible-xs form-title-rquired">
+                        <nop-required />
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-xs-12">
+                        <input asp-for="RecipientEmail" class="recipient-email form-control" />
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-xs-12">
+                        <div class="visible-lg visible-md visible-sm form-title-rquired"><nop-required /></div>
+                    </div>
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label col-sm-2 col-md-2" asp-for="SenderName" asp-postfix=":"></label>
+                <div class="visible-xs form-title-rquired">
+                    <nop-required />
+                </div>
+                <div class="col-sm-6 col-md-6 col-xs-12">
+                    <input asp-for="SenderName" class="sender-name form-control" />
+                </div>
+                <div class="col-sm-4 col-md-4 col-xs-12">
+                    <div class="visible-lg visible-md visible-sm form-title-rquired"><nop-required /></div>
+                </div>
+            </div>
+            @if (Model.GiftCardType == Nop.Core.Domain.Catalog.GiftCardType.Virtual)
+            {
+                <div class="form-group">
+                    <label class="control-label col-sm-2 col-md-2" asp-for="SenderEmail" asp-postfix=":"></label>
+                    <div class="visible-xs form-title-rquired">
+                        <nop-required />
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-xs-12">
+                        <input asp-for="SenderEmail" class="sender-email form-control" />
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-xs-12">
+                        <div class="visible-lg visible-md visible-sm form-title-rquired"><nop-required /></div>
+                    </div>
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label col-sm-2 col-md-2" asp-for="Message" asp-postfix=":"></label>
+                <div class="col-sm-6 col-md-6 col-xs-12">
+                    <textarea asp-for="Message" class="message form-control"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+}       

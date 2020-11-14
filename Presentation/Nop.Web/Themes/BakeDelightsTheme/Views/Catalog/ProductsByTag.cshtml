@@ -1,0 +1,58 @@
+﻿@model ProductsByTagModel
+@using Nop.Core.Domain.Seo
+@inject Nop.Core.IWebHelper webHelper
+@inject SeoSettings seoSettings
+@{
+    Layout = "_ColumnsTwo";
+
+    //title
+    Html.AddTitleParts(string.Format(T("PageTitle.ProductsByTag").Text, Model.TagName));
+    //page class
+    Html.AppendPageCssClassParts("html-product-tag-page");
+
+    //canonical URL
+    if (seoSettings.CanonicalUrlsEnabled)
+    {
+        var productsByTagUrl = Url.RouteUrl("ProductsByTag", new { SeName = Model.TagSeName }, webHelper.CurrentRequestProtocol).ToLowerInvariant();
+        Html.AddCanonicalUrlParts(productsByTagUrl, seoSettings.QueryStringInCanonicalUrlsEnabled);
+    }
+}
+<div class="page product-tag-page">
+    <div class="page-title panel-heading">
+        <h1>@string.Format(T("Products.Tags.ProductsTaggedWith").Text, Model.TagName)</h1>
+    </div>
+    <div class="page-body">
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductsByTagTop, additionalData = Model })
+        @if (Model.Products.Count > 0)
+        {
+            @await Html.PartialAsync("_CatalogSelectors", Model.PagingFilteringContext)
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductsByTagBeforeProductList, additionalData = Model })
+        @*product grid and list*@
+        @if (Model.Products.Count > 0)
+        {
+            <div class="product-grid clearfix">
+                <div class="row">
+                    @foreach (var product in Model.Products)
+                    {
+                        <div class="item-box @(Model.PagingFilteringContext.ViewMode == "list" ? "product-list col-xs-12 col-sm-12 col-md-12 product-align" : "product-grid col-xs-12 col-sm-4 col-md-4 product-align")">
+                            <div class="thumbnail">
+                                @await Html.PartialAsync("_ProductBox", product)
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+        @{
+            var pager = Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber");
+        }
+        @if (!pager.IsEmpty())
+        {
+            <div class="pager">
+                @pager
+            </div>
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.ProductsByTagBottom, additionalData = Model })
+    </div>
+</div>

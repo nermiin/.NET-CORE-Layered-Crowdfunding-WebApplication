@@ -1,6 +1,8 @@
 # HaydiFonla_ASP.NET_CORE
 CrowdFunding website to collect donation for any kind of project
 
+https://haydifonla.azurewebsites.net/
+
 ### Gerekli Araçlar
 
 -	.NET Core 3.1 runtime & .NET Core SDK

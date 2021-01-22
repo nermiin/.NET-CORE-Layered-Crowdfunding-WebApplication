@@ -10,4 +10,11 @@ https://haydifonla.azurewebsites.net/
 -	Ms SQL Server 2012 veya Üstü / MySql Sunucusu 5.7 veya Üstü
 
 
+
 ![pic1](img/Picture1.png)
+![pic1](img/Picture2.png)
+![pic1](img/Picture3.png)
+![pic1](img/Picture4.png)
+![pic1](img/Picture5.png)
+![pic1](img/Picture6.png)
+![pic1](img/Picture7.png)

@@ -10,4 +10,4 @@ https://haydifonla.azurewebsites.net/
 -	Ms SQL Server 2012 veya Üstü / MySql Sunucusu 5.7 veya Üstü
 
 
-!(https://github.com/nermiin/HaydiFonla_ASP.NET_CORE/blob/master/img/Picture1.png)
+![pic1](https://github.com/nermiin/HaydiFonla_ASP.NET_CORE/blob/master/img/Picture1.png)

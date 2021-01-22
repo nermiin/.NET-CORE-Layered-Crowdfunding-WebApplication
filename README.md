@@ -11,9 +11,6 @@ https://haydifonla.azurewebsites.net/
 
 
 
-![pic1](img/Picture1.png)
-<br/>
-![pic1](img/Picture2.png)
 <br/>
 ![pic1](img/Picture3.png)
 <br/>
@@ -21,6 +18,5 @@ https://haydifonla.azurewebsites.net/
 <br/>
 ![pic1](img/Picture5.png)
 <br/>
-![pic1](img/Picture6.png)
-<br/>
+
 ![pic1](img/Picture7.png)
